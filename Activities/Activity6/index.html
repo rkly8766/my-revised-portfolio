@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Helmet Exchange – Luxury Resale</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Index-specific ── */
+        .features-strip {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .feature-block {
+            flex: 1;
+            max-width: 300px;
+            padding: 35px 30px;
+            text-align: center;
+            border-right: 1px solid #1a1a1a;
+        }
+
+        .feature-block:last-child { border-right: none; }
+
+        .feature-block .icon {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #d4af37;
+        }
+
+        .feature-block h4 {
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .feature-block p {
+            font-size: 0.78rem;
+            color: #555;
+            font-weight: 300;
+        }
+
+        /* ── Featured Preview ── */
+        .featured-preview {
+            padding: 100px 20px;
+        }
+
+        /* ── Marquee Banner ── */
+        .marquee-wrap {
+            background: #d4af37;
+            overflow: hidden;
+            padding: 14px 0;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-block;
+            animation: marquee 22s linear infinite;
+        }
+
+        .marquee-track span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #000;
+            margin-right: 60px;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ── Info Split ── */
+        .info-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 400px;
+        }
+
+        .info-img {
+            background: url("images/notjust.png") center/cover no-repeat;
+        }
+
+        .info-text {
+            background: #0a0a0a;
+            color: #fff;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-text .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .info-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .info-text p {
+            font-size: 0.88rem;
+            line-height: 1.9;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .info-split { grid-template-columns: 1fr; }
+            .info-img { height: 260px; }
+            .features-strip { flex-wrap: wrap; }
+            .feature-block { border-right: none; border-bottom: 1px solid #1a1a1a; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ELITE</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="home.html">Discover</a>
+                <a href="collection.html">Collection</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <p>Est. 2020 · Premium Resale</p>
+            <h1>Luxury Helmet<br>Exchange</h1>
+            <a href="collection.html" class="cta-btn">Shop Collection</a>
+            <a href="about.html" class="cta-btn outline">Our Story</a>
+        </div>
+    </header>
+
+    <!-- Features Strip -->
+    <div class="features-strip">
+        <div class="feature-block">
+            <div class="icon">✦</div>
+            <h4>Certified Authentic</h4>
+            <p>Every helmet inspected & verified by our experts</p>
+        </div>
+        <div class="feature-block">
+            <div class="icon">✦</div>
+            <h4>Free Shipping</h4>
+            <p>Complimentary worldwide delivery on all orders</p>
+        </div>
+        <div class="feature-block">
+            <div class="icon">✦</div>
+            <h4>Easy Returns</h4>
+            <p>30-day hassle-free return policy</p>
+        </div>
+        <div class="feature-block">
+            <div class="icon">✦</div>
+            <h4>Premium Brands</h4>
+            <p>AGV, Shoei, Shark, Arai & more</p>
+        </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee-wrap">
+        <div class="marquee-track">
+            <span>AGV</span><span>·</span>
+            <span>Shoei</span><span>·</span>
+            <span>Shark</span><span>·</span>
+            <span>Arai</span><span>·</span>
+            <span>Certified Quality</span><span>·</span>
+            <span>Premium Resale</span><span>·</span>
+            <span>AGV</span><span>·</span>
+            <span>Shoei</span><span>·</span>
+            <span>Shark</span><span>·</span>
+            <span>Arai</span><span>·</span>
+            <span>Certified Quality</span><span>·</span>
+            <span>Premium Resale</span><span>·</span>
+        </div>
+    </div>
+
+    <!-- Featured Preview -->
+    <section class="featured-preview">
+        <div class="container">
+            <h2 class="section-title">Featured Helmets</h2>
+            <p class="section-subtitle">Handpicked from our latest arrivals</p>
+            <div class="section-divider"></div>
+            <div class="helmet-grid">
+                <div class="helmet-item">
+                    <img src="images/helm1.png" alt="AGV K1 S">
+                    <div class="helmet-info">
+                        <h3>AGV K1 S</h3>
+                        <p>Italian precision engineering</p>
+                        <span class="price">₱33,544</span>
+                        <a href="collection.html" class="btn-small">View Details</a>
+                    </div>
+                </div>
+                <div class="helmet-item">
+                    <img src="images/helm2.png" alt="Shoei RF-1400">
+                    <div class="helmet-info">
+                        <h3>Shoei RF-1400</h3>
+                        <p>Supreme aerodynamic design</p>
+                        <span class="price">₱30,744</span>
+                        <a href="collection.html" class="btn-small">View Details</a>
+                    </div>
+                </div>
+                <div class="helmet-item">
+                    <img src="images/helm3.png" alt="Shark Spartan">
+                    <div class="helmet-info">
+                        <h3>Shark Spartan GT</h3>
+                        <p>Modern aggressive styling</p>
+                        <span class="price">₱26,824</span>
+                        <a href="collection.html" class="btn-small">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:50px;">
+                <a href="collection.html" class="cta-btn">View Full Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Split -->
+    <div class="info-split">
+        <div class="info-img"></div>
+        <div class="info-text">
+            <span class="eyebrow">Why Elite?</span>
+            <h2>Not Just a Helmet.<br>A Statement.</h2>
+            <p>We source the finest pre-owned luxury helmets from collectors and enthusiasts worldwide. Each piece undergoes rigorous inspection before earning our seal of approval.</p>
+            <a href="about.html" class="cta-btn">Learn More</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">ELITE</a>
+                <p>The premier destination for luxury pre-owned helmets. Curated with passion, delivered with care.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <a href="index.html">Home</a>
+                <a href="home.html">Discover</a>
+                <a href="collection.html">Collection</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elite Helmet Exchange. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

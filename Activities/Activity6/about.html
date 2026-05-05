@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – Elite Helmet Exchange</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── About Intro ── */
+        .about-intro {
+            max-width: 750px;
+            margin: 90px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .about-intro .eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .about-intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .about-intro p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* ── Story Split ── */
+        .story-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1200px;
+            margin: 0 auto 90px;
+            padding: 0 20px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-split img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: right center;
+        }
+
+        .story-text .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .story-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .story-text p {
+            font-size: 0.9rem;
+            line-height: 1.9;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        /* ── Values ── */
+        .values-section {
+            background: #0a0a0a;
+            padding: 100px 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            max-width: 1100px;
+            margin: 60px auto 0;
+            background: #1a1a1a;
+        }
+
+        .value-card {
+            background: #0a0a0a;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .value-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            font-size: 0.82rem;
+            line-height: 1.8;
+            color: #555;
+            font-weight: 300;
+        }
+
+        /* ── Team ── */
+        .team-section {
+            padding: 100px 20px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-card .specialavatar {
+            width: 120px;
+            height: 120px;
+            background: url("images/ceo.jpg") center center / cover no-repeat;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        .team-card .avatar {
+            width: 120px;
+            height: 120px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .team-card .role {
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+
+        .location-section .google-maps {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (max-width: 900px) {
+            .story-split { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ELITE</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="home.html">Discover</a>
+                <a href="collection.html">Collection</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Our Story</h1>
+        <p>Passion · Precision · Heritage</p>
+    </div>
+
+    <!-- Intro -->
+    <div class="about-intro">
+        <span class="eyebrow">About Elite</span>
+        <h2>Born from a Passion<br>for the Ride</h2>
+        <p>Elite Helmet Exchange was founded in 2020 by a group of motorcycle enthusiasts who believed that premium protection shouldn't come at an unattainable price. We bridge the gap between luxury and accessibility in the world of motorcycle gear.</p>
+    </div>
+
+    <!-- Story Split -->
+    <div class="story-split">
+        <img src="images/safe.png" alt="Our Workshop">
+        <div class="story-text">
+            <span class="eyebrow">Our Process</span>
+            <h3>Inspection Before<br>Everything</h3>
+            <p>Every helmet that enters our facility undergoes a rigorous multi-point inspection. We examine the shell, liner, retention system, visor, and all safety certifications before it earns the Elite seal of approval.</p>
+            <p>Our certified technicians have decades of combined experience and a zero-tolerance policy for anything that doesn't meet our exacting standards. If it doesn't pass, it doesn't ship.</p>
+            <a href="collection.html" class="cta-btn">Shop Certified Helmets</a>
+        </div>
+    </div>
+
+    <!-- Values -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title" style="color:#fff;">What We Stand For</h2>
+            <p class="section-subtitle">Our core principles</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">✦</div>
+                <h4>Authenticity</h4>
+                <p>Every helmet is verified genuine. No fakes, no exceptions. Your safety depends on it.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">✦</div>
+                <h4>Transparency</h4>
+                <p>Full condition reports, ownership history, and inspection records available for every item.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">✦</div>
+                <h4>Sustainability</h4>
+                <p>Extending the life of premium helmets reduces waste and makes luxury more accessible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">The Team</h2>
+            <p class="section-subtitle">The people behind every helmet</p>
+            <div class="section-divider"></div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="specialavatar"></div>
+                    <h4>Kristopher Lee J. Ludivese Jr.</h4>
+                    <span class="role">Founder & CEO</span>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">👤</div>
+                    <h4>Sofia Navarro</h4>
+                    <span class="role">Head of Inspection</span>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">👤</div>
+                    <h4>James Tan</h4>
+                    <span class="role">Curation Director</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Google Maps-->
+    <section class="location-section">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <p class="section-subtitle">Our flagship showroom and inspection facility</p>
+            <div class="google-maps">
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.112846428357!2d123.90701661031515!3d10.332853467176884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9991f96323923%3A0x950177ce2f58189b!2seBloc%204%20Tower!5e0!3m2!1sen!2sph!4v1774162418467!5m2!1sen!2sph" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">ELITE</a>
+                <p>The premier destination for luxury pre-owned helmets. Curated with passion, delivered with care.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <a href="index.html">Home</a>
+                <a href="home.html">Discover</a>
+                <a href="collection.html">Collection</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elite Helmet Exchange. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

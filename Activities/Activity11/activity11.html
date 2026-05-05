@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Activity 11 - JS Loops</title>
+</head>
+<body>
+
+  <h1>Activity 11 - JavaScript Loops Demo</h1>
+  <hr>
+
+  <h2>For Loop</h2>
+  <label>Number of repetitions: </label>
+  <input type="number" id="forCount" value="0"><br>
+  <label>Text to repeat: </label>
+  <input type="text" id="forText" placeholder="Enter text"><br><br>
+  <button onclick="runFor()">Show</button>
+  <button onclick="clearFor()">Clear</button>
+  <p id="forOutput"></p>
+
+  <br>
+
+  <h2>While Loop</h2>
+  <label>Number of repetitions: </label>
+  <input type="number" id="whileCount" value="0"><br>
+  <label>Text to repeat: </label>
+  <input type="text" id="whileText" placeholder="Enter text"><br><br>
+  <button onclick="runWhile()">Show</button>
+  <button onclick="clearWhile()">Clear</button>
+  <p id="whileOutput"></p>
+
+  <br>
+
+  <h2>Do-While Loop</h2>
+  <label>Number of repetitions: </label>
+  <input type="number" id="doCount" value="0"><br>
+  <label>Text to repeat: </label>
+  <input type="text" id="doText" placeholder="Enter text"><br><br>
+  <button onclick="runDo()">Show</button>
+  <button onclick="clearDo()">Clear</button>
+  <p id="doOutput"></p>
+
+  <script>
+    function runFor() {
+      var n = Number(document.getElementById("forCount").value);
+      var text = document.getElementById("forText").value;
+      var output = "";
+      for (var i = 0; i < n; i++) {
+        output += text + "<br>";
+      }
+      document.getElementById("forOutput").innerHTML = output;
+    }
+
+    function clearFor() {
+      document.getElementById("forCount").value = 0;
+      document.getElementById("forText").value = "";
+      document.getElementById("forOutput").innerHTML = "";
+    }
+
+    function runWhile() {
+      var n = Number(document.getElementById("whileCount").value);
+      var text = document.getElementById("whileText").value;
+      var output = "";
+      var i = 0;
+      while (i < n) {
+        output += text + "<br>";
+        i++;
+      }
+      document.getElementById("whileOutput").innerHTML = output;
+    }
+
+    function clearWhile() {
+      document.getElementById("whileCount").value = 0;
+      document.getElementById("whileText").value = "";
+      document.getElementById("whileOutput").innerHTML = "";
+    }
+
+    function runDo() {
+      var n = Number(document.getElementById("doCount").value);
+      var text = document.getElementById("doText").value;
+      var output = "";
+      var i = 0;
+      do {
+        if (i < n) output += text + "<br>";
+        i++;
+      } while (i < n);
+      document.getElementById("doOutput").innerHTML = output;
+    }
+
+    function clearDo() {
+      document.getElementById("doCount").value = 0;
+      document.getElementById("doText").value = "";
+      document.getElementById("doOutput").innerHTML = "";
+    }
+  </script>
+
+  <br>
+  <a href="../../index.html">Back to Portfolio</a>
+
+</body>
+</html>

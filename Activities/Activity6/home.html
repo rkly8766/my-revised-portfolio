@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover – Elite Helmet Exchange</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Promo Strip ── */
+        .promo-strip {
+            background: #d4af37;
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        /* ── Promo Tiles ── */
+        .promo-section {
+            padding: 80px 20px;
+            background: #fff;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .promo-tile {
+            position: relative;
+            overflow: hidden;
+            min-height: 340px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .promo-tile img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .promo-tile:hover img { transform: scale(1.05); }
+
+        .promo-tile::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+        }
+
+        .promo-content {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            color: #fff;
+        }
+
+        .promo-badge {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .promo-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .promo-tile.small { min-height: 200px; }
+
+        .promo-side {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* ── Stats Strip ── */
+        .stats-strip {
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stat-block {
+            flex: 1;
+            max-width: 250px;
+            padding: 50px 20px;
+            text-align: center;
+            border-right: 1px solid #1a1a1a;
+        }
+
+        .stat-block:last-child { border: none; }
+
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #d4af37;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* ── Featured (home) ── */
+        .featured-home {
+            padding: 100px 20px;
+        }
+
+        /* ── Brand Logos ── */
+        .brands-section {
+            background: #fff;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .brands-section p {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 40px;
+        }
+
+        .brand-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .brand-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #ccc;
+            letter-spacing: 3px;
+            transition: color 0.3s;
+        }
+
+        .brand-logo:hover { color: #d4af37; }
+
+        /* ── Testimonials ── */
+        .testimonials {
+            background: #f9f9f9;
+            padding: 100px 20px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 35px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .stars {
+            color: #d4af37;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: #555;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        @media (max-width: 900px) {
+            .promo-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .stats-strip { flex-wrap: wrap; }
+            .stat-block { border-right: none; border-bottom: 1px solid #1a1a1a; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-strip">✦ Free Worldwide Shipping on Orders Over ₱16,800 ✦</div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ELITE</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="home.html" class="active">Discover</a>
+                <a href="collection.html">Collection</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Discover</h1>
+        <p>Explore · Inspire · Ride</p>
+    </div>
+
+    <!-- Promo Tiles -->
+    <section class="promo-section">
+        <div class="promo-grid">
+            <div class="promo-tile">
+                <img src="images/cover.png" alt="New Arrivals">
+                <div class="promo-content">
+                    <span class="promo-badge">New Arrivals</span>
+                    <h3>Fresh Drops<br>This Week</h3>
+                    <a href="collection.html" class="cta-btn">Shop Now</a>
+                </div>
+            </div>
+            <div class="promo-side">
+                <div class="promo-tile small">
+                    <img src="images/helm1.png" alt="AGV Collection">
+                    <div class="promo-content">
+                        <span class="promo-badge">Spotlight</span>
+                        <h3>AGV Collection</h3>
+                        <a href="collection.html" class="btn-small">Explore</a>
+                    </div>
+                </div>
+                <div class="promo-tile small">
+                    <img src="images/helm2.png" alt="Shoei">
+                    <div class="promo-content">
+                        <span class="promo-badge">Up to 20% Off</span>
+                        <h3>Shoei Sale</h3>
+                        <a href="collection.html" class="btn-small">Shop Sale</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-strip">
+        <div class="stat-block">
+            <span class="stat-num">500+</span>
+            <span class="stat-label">Helmets Sold</span>
+        </div>
+        <div class="stat-block">
+            <span class="stat-num">4</span>
+            <span class="stat-label">Premium Brands</span>
+        </div>
+        <div class="stat-block">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Satisfaction Rate</span>
+        </div>
+        <div class="stat-block">
+            <span class="stat-num">30</span>
+            <span class="stat-label">Day Returns</span>
+        </div>
+    </div>
+
+    <!-- Featured -->
+    <section class="featured-home">
+        <div class="container">
+            <h2 class="section-title">Editor's Picks</h2>
+            <p class="section-subtitle">Curated for the discerning rider</p>
+            <div class="section-divider"></div>
+            <div class="helmet-grid">
+                <div class="helmet-item">
+                    <img src="images/helm4.png" alt="Arai Chaser">
+                    <div class="helmet-info">
+                        <h3>Arai Chaser V</h3>
+                        <p>Japanese craftsmanship</p>
+                        <span class="price">₱31,217</span>
+                        <a href="collection.html" class="btn-small">View Details</a>
+                    </div>
+                </div>
+                <div class="helmet-item">
+                    <img src="images/helm5.png" alt="AGV K6 S">
+                    <div class="helmet-info">
+                        <h3>AGV K6 S</h3>
+                        <p>Lightweight racing heritage</p>
+                        <span class="price">₱39,037</span>
+                        <a href="collection.html" class="btn-small">View Details</a>
+                    </div>
+                </div>
+                <div class="helmet-item">
+                    <img src="images/helm6.png" alt="Shark Speed-R">
+                    <div class="helmet-info">
+                        <h3>Shark Speed-R Evo</h3>
+                        <p>Aerodynamic performance</p>
+                        <span class="price">₱31,819</span>
+                        <a href="collection.html" class="btn-small">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="brands-section">
+        <p>Our Brands</p>
+        <div class="brand-logos">
+            <span class="brand-logo">AGV</span>
+            <span class="brand-logo">SHOEI</span>
+            <span class="brand-logo">SHARK</span>
+            <span class="brand-logo">ARAI</span>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Riders Say</h2>
+            <div class="section-divider"></div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Absolutely pristine condition. Couldn't believe it was pre-owned. Elite truly means elite."</p>
+                    <span class="testimonial-author">— Marco R., Track Rider</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Got my AGV K6 for half the retail price. The inspection certificate gave me complete peace of mind."</p>
+                    <span class="testimonial-author">— Sarah K., Daily Commuter</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Shipping was fast and the packaging was premium. This is how luxury resale should be done."</p>
+                    <span class="testimonial-author">— James T., Collector</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">ELITE</a>
+                <p>The premier destination for luxury pre-owned helmets. Curated with passion, delivered with care.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <a href="index.html">Home</a>
+                <a href="home.html">Discover</a>
+                <a href="collection.html">Collection</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elite Helmet Exchange. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

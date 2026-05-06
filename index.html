@@ -80,6 +80,11 @@
       background: none;
       border: none;
       padding: 4px;
+      min-height: 44px;
+      min-width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hamburger span {
@@ -116,7 +121,7 @@
       }
       nav ul li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
       nav ul li:last-child { border-bottom: none; }
-      nav ul a { font-size: 0.9rem; }
+      nav ul a { font-size: 0.9rem; min-height: 44px; display: flex; align-items: center; }
       .hero-inner h1 { font-size: 1.8rem; }
     }
 
@@ -137,7 +142,106 @@
       }
     }
 
+    /* MOBILE FRIENDLY ENHANCEMENTS */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 1rem;
+        height: 50px;
+      }
+      nav .logo {
+        font-size: 1rem;
+      }
+      #hero {
+        padding: 4rem 1rem 2rem;
+        min-height: 90vh;
+      }
+      .hero-inner img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+      }
+      .hero-inner h1 {
+        font-size: 2rem;
+      }
+      .hero-inner p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+      section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .portfolio-card {
+        padding: 1rem;
+      }
+      .portfolio-card h3 {
+        font-size: 0.95rem;
+      }
+      .portfolio-card p {
+        font-size: 0.8rem;
+      }
+      .portfolio-card a {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        min-height: 44px;
+      }
+      .contact-form textarea {
+        height: 100px;
+      }
+      .contact-map {
+        height: 200px;
+      }
+      .social-links {
+        gap: 1rem;
+      }
+      .social-links a {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 0.5rem;
+      }
+      #hero {
+        padding: 3rem 0.5rem 1rem;
+      }
+      .hero-inner h1 {
+        font-size: 1.8rem;
+      }
+      .hero-inner p {
+        font-size: 0.9rem;
+      }
+      section {
+        padding: 2rem 0.5rem;
+      }
+      section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+      .contact-map {
+        height: 150px;
+      }
+    }
+
     /* HERO */
+
     #hero {
       min-height: 100vh;
       display: flex;

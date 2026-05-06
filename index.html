@@ -38,7 +38,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 60px;
+      min-height: 60px;
     }
 
     nav .logo {
@@ -53,7 +53,17 @@
       list-style: none;
       display: flex;
       gap: 2rem;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
+
+    nav ul::-webkit-scrollbar { display: none; }
 
     nav ul a {
       color: var(--text-muted);
@@ -63,78 +73,32 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      padding: 0.5rem 0;
     }
 
     nav ul a:hover { color: var(--accent); }
 
-    #nav-links {
-      display: flex;
-    }
-
-    /* HAMBURGER */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-      min-height: 44px;
-      min-width: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* MOBILE NAV */
     @media (max-width: 768px) {
-      .hamburger { display: flex !important; }
-      #nav-links {
-        display: none !important;
-        flex-direction: column;
-        gap: 0;
-        position: absolute;
-        top: 60px;
-        left: 0; right: 0;
-        background: rgba(13,13,13,0.98);
-        border-bottom: 1px solid var(--border);
-        padding: 1rem 2rem;
+      nav {
+        padding: 0 1rem;
       }
-      #nav-links.open { display: flex !important; }
-      nav.open #nav-links.open { display: flex !important; }
-      nav.open {
-        background: rgba(13,13,13,0.95);
+      nav ul {
+        gap: 0.75rem;
+        justify-content: flex-end;
       }
-      nav ul li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
-      nav ul li:last-child { border-bottom: none; }
-      nav ul a { font-size: 0.9rem; min-height: 44px; display: flex; align-items: center; }
+      nav ul a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.2rem;
+      }
       .hero-inner h1 { font-size: 1.8rem; }
     }
 
     @media (min-width: 769px) {
-      .hamburger { display: none !important; }
       nav ul {
-        display: flex !important;
-        position: static;
-        background: transparent;
-        border: none;
-        padding: 0;
-        flex-direction: row;
-        gap: 2rem;
+        overflow: visible;
       }
       nav ul li {
         padding: 0;
@@ -281,6 +245,7 @@
       margin: 0 auto;
       padding: 5rem 2rem;
       border-bottom: 1px solid var(--border);
+      scroll-margin-top: 80px;
     }
 
     section h2 {
@@ -604,9 +569,6 @@
 
   <nav>
     <div class="logo">KLL</div>
-    <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
     <ul id="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -805,44 +767,6 @@
     </nav>
   </footer>
 
-  <script>
-    const nav = document.querySelector('nav');
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const desktopMediaQuery = window.matchMedia('(min-width: 769px)');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      nav.classList.toggle('open');
-      navLinks.classList.toggle('open');
-    });
-
-    function closeMobileMenuOnDesktop() {
-      if (desktopMediaQuery.matches) {
-        hamburger.classList.remove('open');
-        nav.classList.remove('open');
-        navLinks.classList.remove('open');
-      }
-    }
-
-    if (desktopMediaQuery.addEventListener) {
-      desktopMediaQuery.addEventListener('change', closeMobileMenuOnDesktop);
-    } else if (desktopMediaQuery.addListener) {
-      desktopMediaQuery.addListener(closeMobileMenuOnDesktop);
-    }
-
-    window.addEventListener('resize', closeMobileMenuOnDesktop);
-    closeMobileMenuOnDesktop();
-
-    // Close menu when a nav link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        nav.classList.remove('open');
-        navLinks.classList.remove('open');
-      });
-    });
-  </script>
 
 </body>
 </html>

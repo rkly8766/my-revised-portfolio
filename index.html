@@ -67,6 +67,56 @@
 
     nav ul a:hover { color: var(--accent); }
 
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE NAV */
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 60px;
+        left: 0; right: 0;
+        background: rgba(13,13,13,0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 2rem;
+      }
+
+      nav ul.open { display: flex; }
+
+      nav ul li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+      nav ul li:last-child { border-bottom: none; }
+
+      nav ul a { font-size: 0.9rem; }
+
+      .hero-inner h1 { font-size: 1.8rem; }
+    }
+
     /* HERO */
     #hero {
       min-height: 100vh;
@@ -430,7 +480,10 @@
 
   <nav>
     <div class="logo">KLL</div>
-    <ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
@@ -627,6 +680,24 @@
       <a href="#contact">Contact</a>
     </nav>
   </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu when a nav link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
 
 </body>
 </html>

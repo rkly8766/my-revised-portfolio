@@ -93,10 +93,9 @@
 
     /* MOBILE NAV */
     @media (max-width: 768px) {
-      .hamburger { display: flex; }
-
+      .hamburger { display: flex !important; }
       nav ul {
-        display: none;
+        display: none !important;
         flex-direction: column;
         gap: 0;
         position: absolute;
@@ -106,15 +105,28 @@
         border-bottom: 1px solid var(--border);
         padding: 1rem 2rem;
       }
-
-      nav ul.open { display: flex; }
-
+      nav ul.open { display: flex !important; }
       nav ul li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
       nav ul li:last-child { border-bottom: none; }
-
       nav ul a { font-size: 0.9rem; }
-
       .hero-inner h1 { font-size: 1.8rem; }
+    }
+
+    @media (min-width: 769px) {
+      .hamburger { display: none !important; }
+      nav ul {
+        display: flex !important;
+        position: static;
+        background: transparent;
+        border: none;
+        padding: 0;
+        flex-direction: row;
+        gap: 2rem;
+      }
+      nav ul li {
+        padding: 0;
+        border: none;
+      }
     }
 
     /* HERO */
@@ -684,11 +696,23 @@
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
+    const desktopMediaQuery = window.matchMedia('(min-width: 769px)');
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
       navLinks.classList.toggle('open');
     });
+
+    function closeMobileMenuOnDesktop() {
+      if (desktopMediaQuery.matches) {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      }
+    }
+
+    desktopMediaQuery.addEventListener('change', closeMobileMenuOnDesktop);
+    window.addEventListener('resize', closeMobileMenuOnDesktop);
+    closeMobileMenuOnDesktop();
 
     // Close menu when a nav link is clicked
     navLinks.querySelectorAll('a').forEach(link => {

@@ -67,6 +67,10 @@
 
     nav ul a:hover { color: var(--accent); }
 
+    #nav-links {
+      display: flex;
+    }
+
     /* HAMBURGER */
     .hamburger {
       display: none;
@@ -94,7 +98,7 @@
     /* MOBILE NAV */
     @media (max-width: 768px) {
       .hamburger { display: flex !important; }
-      nav ul {
+      #nav-links {
         display: none !important;
         flex-direction: column;
         gap: 0;
@@ -105,7 +109,11 @@
         border-bottom: 1px solid var(--border);
         padding: 1rem 2rem;
       }
-      nav ul.open { display: flex !important; }
+      #nav-links.open { display: flex !important; }
+      nav.open #nav-links.open { display: flex !important; }
+      nav.open {
+        background: rgba(13,13,13,0.95);
+      }
       nav ul li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
       nav ul li:last-child { border-bottom: none; }
       nav ul a { font-size: 0.9rem; }
@@ -492,7 +500,7 @@
 
   <nav>
     <div class="logo">KLL</div>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
     <ul id="nav-links">
@@ -694,23 +702,31 @@
   </footer>
 
   <script>
+    const nav = document.querySelector('nav');
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     const desktopMediaQuery = window.matchMedia('(min-width: 769px)');
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
+      nav.classList.toggle('open');
       navLinks.classList.toggle('open');
     });
 
     function closeMobileMenuOnDesktop() {
       if (desktopMediaQuery.matches) {
         hamburger.classList.remove('open');
+        nav.classList.remove('open');
         navLinks.classList.remove('open');
       }
     }
 
-    desktopMediaQuery.addEventListener('change', closeMobileMenuOnDesktop);
+    if (desktopMediaQuery.addEventListener) {
+      desktopMediaQuery.addEventListener('change', closeMobileMenuOnDesktop);
+    } else if (desktopMediaQuery.addListener) {
+      desktopMediaQuery.addListener(closeMobileMenuOnDesktop);
+    }
+
     window.addEventListener('resize', closeMobileMenuOnDesktop);
     closeMobileMenuOnDesktop();
 
@@ -718,6 +734,7 @@
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
+        nav.classList.remove('open');
         navLinks.classList.remove('open');
       });
     });
